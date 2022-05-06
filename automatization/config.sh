@@ -1,12 +1,10 @@
 #!bin/bash
 
-echo "welcome on the arch installer"
-iwctl 
-station wlan0 scan
-station wlan0 get-networks
+echo "welcome on the arch installer" 
+iwctl station wlan0 scan
+iwctl station wlan0 get-networks
 echo "which hotspot would you like to connect ?" && read hotspot
-station wlan0 connect $hotspot
-read SSIDPassword
+iwctl station wlan0 connect "$hotspot"
 lsblk
 echo "on which disk do you want to set your linux partition ? (please enter only the disk not the path)" && read disk
 echo "please tell me how many partition already exist on your disk" && read partitionNumber
